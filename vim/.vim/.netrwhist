@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/home/rohit/Projects/PAMS-MDM/Test_files'
+let g:netrw_dirhist_2='/home/rohit/Projects/PAMS-MDM/inc/Module'
+let g:netrw_dirhist_3='/home/rohit/Projects/PAMS-MDM/inc/Module/Install'
+let g:netrw_dirhist_4='/home/rohit/Projects/PAMS-MDM/inc/Module'
+let g:netrw_dirhist_5='/etc/apache2'
+let g:netrw_dirhist_6='/etc/apache2/conf-available'
+let g:netrw_dirhist_7='/home/rohit/Projects/PAMS-MDM/parse/Weather/ALLUTILITY/NoAMIType/NoSourceType/NoScheduleType/NoServiceType/Load'
+let g:netrw_dirhist_8='/home/rohit/log'
+let g:netrw_dirhist_9='/home/rohit/Projects/PAMS-MDM/conf'
