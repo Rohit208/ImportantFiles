@@ -5,6 +5,8 @@ psql -v ON_ERROR_STOP=1 --username "postgres" --dbname "postgres" <<-EOSQL
 
     CREATE USER rohit WITH SUPERUSER PASSWORD '12345';
 
+    ALTER USER rohit WITH Superuser CREATEROLE CREATEDB Replication;
+
     CREATE DATABASE "rohit_pams_system";
     CREATE DATABASE "rohit_pams_authentication";
     CREATE DATABASE "rohit_mdm_common";
