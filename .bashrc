@@ -157,7 +157,7 @@ alias l='ls -CF'
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-alias sync='NOW=/home/abhinickz/test/rsync_$(date +"%F_%H_%M_%S").log; echo $NOW;sh /home/abhinickz/test/clear_logs.sh && rsync -razP --delete -e '"'"'ssh -p 22'"'"' --progress /home/abhinickz/test/. abhinickz@abhinickz_remote:/home/abhinickz/Backup_Local/test/. > $NOW';
+alias sync='NOW=/home/rohit/test/rsync_$(date +"%F_%H_%M_%S").log; echo $NOW;sh /home/rohit/test/clear_logs.sh && rsync -razP --delete -e '"'"'ssh -p 22'"'"' --progress /home/rohit/test/. rohit@rohit_remote:/home/rohit/Backup_Local/test/. > $NOW';
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -227,12 +227,25 @@ alias alerts='cd /home/rohit/Projects/PAMS-Alerts/'
 alias auth='cd /home/rohit/Projects/PAMS-Authentication/'
 alias ll='ls -lrthF -N --color=tty -T 0'
 alias perm='stat -c "%A %a %n"'
+alias change_localhost='find . -type f -exec sed -i "s/localhost/10.10.10.77/g" {} \;'
+
+alias psql='psql -h 0.0.0.0 -U rohit -p 5432 -d'
 alias psqldev01='psql -h 10.10.10.88 -U rohit -d'
 alias psqllog='tail -f /var/log/postgresql/postgresql-11-main.log'
+export PGPASSWORD='12345';
+
 alias vpn='cd /home/rohit/Documents/vpn/rohit/'
 alias excelvpn='sudo openvpn rohit.ovpn'
 alias rust='cd /home/rohit/Documents/Rust/'
+alias Node='cd /home/rohit/Documents/Node/'
 alias update='sudo apt-get update && sudo apt-get upgrade && sudo apt-get dist-upgrade'
+alias clearram='sudo sync; echo 1 > /proc/sys/vm/drop_caches && printf "\n Ram Cleared \n" '
+alias clearcache='sudo swapoff -a && swapon -a && printf "\n Swap Cleared \n"'
+
+export NODE_ENV='development'
+export NODE_PORT='3001'
+export app_password='gyuhjbf4'
+export DEBUG='app:*'
 
 export PATH=/home/rohit/Projects/PAMS-Common/bin:$PATH
 
@@ -251,3 +264,6 @@ if ! shopt -oq posix; then
 fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+export NVM_DIR="/home/rohit/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

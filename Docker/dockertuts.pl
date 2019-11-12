@@ -41,18 +41,35 @@ docker images
 #remove images
 docker rmi imageID
 
-## Build Image
-docker build -t test_postgresql .
+#pull latest postgresql Image
+docker pull postgres:latest
 
-## RUN Ubuntu container
-docker run -it ubuntu:16.04
+#build yout own image upon it
+docker build -t postgresql:12 .
 
-## Create Container postgresql
-docker container run --rm -it --name test_postgresql test_postgresql
+#Create Volumne decide ports and create a Container
+sudo docker run -v /exceleron/psql/12:/var/lib/postgresql/data/ -p 5432:5432 --name postgresql -e POSTGRES_PASSWORD=12345 -d imageID
 
-## RUN Postgresql container
-docker exec -it test_postgresql  psql -U rohit
+#docker exec interactivily using docker internal options
+docker exec -it COMTAINERID psql -p 5432 -U rohit -d test
 
-#make a new copy actual Db all times when the docker is up
-#perl to create db and dummy loader to load data
+#docker bash machine
+docker exec -it COMTAINERID /bin/bash 
 
+#start or stop conatinner docker service
+sudo docker stop postgresql
+sudo docker start postgresql
+
+# Docker logs for COnatainer
+docker logs COMTAINERID
+
+#Docker postgresql
+psql -h 0.0.0.0 -U rohit -p 5432 -d test
+
+
+#https://tecadmin.net/install-postgresql-server-on-ubuntu/
+#https://hub.docker.com/_/postgres
+#https://docs.docker.com/engine/examples/postgresql_service/
+#https://www.linode.com/docs/applications/containers/how-to-use-dockerfiles/
+#https://docs.docker.com/develop/develop-images/dockerfile_best-practices/
+#https://github.com/docker/compose
